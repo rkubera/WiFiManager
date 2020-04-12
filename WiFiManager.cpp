@@ -224,6 +224,11 @@ boolean  WiFiManager::startConfigPortal(char const *apName, char const *apPasswo
 
   while(1){
 
+    //notify we started portal loop
+    if ( _portalloopcallback != NULL) {
+      _portalloopcallback();
+    }
+
     // check if timeout
     if(configPortalHasTimeout()) break;
 
@@ -790,6 +795,10 @@ void WiFiManager::setAPCallback( void (*func)(WiFiManager* myWiFiManager) ) {
 //start up save config callback
 void WiFiManager::setSaveConfigCallback( void (*func)(void) ) {
   _savecallback = func;
+}
+
+void WiFiManager::setPortalLoopCallback( void (*func)(void) ) {
+  _portalloopcallback = func;
 }
 
 //sets a custom element to add to head, like a new style tag
