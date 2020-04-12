@@ -52,6 +52,7 @@ class WiFiManagerParameter {
 
     const char *getID();
     const char *getValue();
+    void        setValue(char * val);
     const char *getPlaceholder();
     int         getValueLength();
     const char *getCustomHTML();

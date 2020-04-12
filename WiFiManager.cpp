@@ -53,6 +53,11 @@ WiFiManagerParameter::~WiFiManagerParameter() {
 const char* WiFiManagerParameter::getValue() {
   return _value;
 }
+
+void WiFiManagerParameter::setValue(char * val) {
+  _value = val;
+}
+
 const char* WiFiManagerParameter::getID() {
   return _id;
 }
